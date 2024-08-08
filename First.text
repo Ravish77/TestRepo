@@ -11,7 +11,18 @@ Enum
 
 Annotations
 ======================	
-*It is a extra information that can be added to class, method or field.
+*It is a extra information that can be added to class, method, interface, enum, constructor, local variables or field.
 *There are many inbuilt annotations. We can also create our own custom annotations
+*Annotations which does not take any values are marker annotations, there are single value and mutli value annotations also.
+*Annotation is a parent of all annotations
+*To Create Custom annotations -
+-we add @infront of interface 
+-@Target and @RetentionPolicy must be defined
+-Target - class/method/iterface so on, Retention -
+-Ex-
+@Target(ElementType.TYPE)// TYPE is for class
+@Retention(RetentionPolicy.RUNTIME)
+@interface CricketPlayer{
+}
 
 
