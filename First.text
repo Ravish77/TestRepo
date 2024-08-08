@@ -1,1 +1,17 @@
-This is changed file
+
+Enum
+======================
+*Enums are group of predefined constants. It was introduced in java 1.5
+*We can create our own type of data.
+*By default ENUMs are public static and final.
+*Like class and interfaces , separate .class will be created when we create an ENUM.
+*We can have fields, methods, Constructors inside ENUMs like class.
+
+
+
+Annotations
+======================	
+*It is a extra information that can be added to class, method or field.
+*There are many inbuilt annotations. We can also create our own custom annotations
+
+
