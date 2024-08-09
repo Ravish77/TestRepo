@@ -1,11 +1,11 @@
-	Core Java
----------------
+	CORE JAVA
+------------------------------
 *java is platform independent . Because Java compiler converts High Level Language to Byte code this byte code is independent of any platform. If JVM is present we can run Java code in any platform , this feature is also called as WORA.
 
 String
-===========
+==============================
 *Strings in Java are treated as Object and memory will be allocated in Heap Area.
-*String is a set of characters which is eclosed with double quotes ""
+*String is a set of characters which is enclosed with double quotes ""
 *In Heap Area there is a special region called "String Constant Pool" where duplicates are not allowed whereas in Heap area ,duplicates are allowed. 
 
 
@@ -17,7 +17,7 @@ Immutable String-
  2.String s = new String("Ravish");
 	**Memory will be allocated in Heap area when created with new keyword also one copy will be created in SCP
 -When we use String referances to call the methods of String class, new String will be created and that too in heap area. the base string will be not be modified as it is a Immutable string
--If we use "+" without any referances to concatinate 2 strings then memory will be allocated in SCP , If we use + sign to concatinate using references then meory will be allocated in Heap area.
+-If we use "+" without any referances to concatinate 2 strings then memory will be allocated in SCP , If we use + sign to concatinate using references then memory will be allocated in Heap area.
 *Different ways to compare Strings
  -== - referance variables will be compared
  -equals - actual string values will be compared
@@ -41,23 +41,23 @@ Mutable String
 
 
 Array
-============
+=============================
 -Collection of homogeneous elements in contigueos memory.
 -Jagged array is a multidimensional array where member arrays are different in length.
 
 
 
 Encapsulation
-==============
+=============================
 *Enacpsulation is a method of hiding the sensitive data from user by making fields as private.
 *We create getters and setters which are public methods the access the fields which helps to get the value and set the value respectively.
 *getters are read only methods and setters are write only methods.
 
 Inheritance
-==============
+=============================
 *process of class deriving from another class using extends keyword called Inheritance.
 *All the fields and behaviours from the Super class get inherited to sub class.
-*After Creating a object from Parent referance with Child constructor, we can only access inherited/overridden method and can not access speciliazed methods which are only in child class. But specialized methods can be accessed by changing the parent class Cast to downcasting.
+*After Creating an object from Parent referance with Child constructor, we can only access inherited/overridden method and can not access speciliazed methods which are only in child class. But specialized methods can be accessed by changing the parent class Cast to downcasting.
 
 
 Method Overriding and Method Overloading
@@ -72,7 +72,7 @@ Method Overriding and Method Overloading
 	*parameter list also must be same
 
 Polymorphism
-==============
+=========================================
 *It is a feature of where one thing behave as many forms.
 *static method particpate in Inheritence but can not be overridden. This is called method hiding.
 *Method Overriding is a Runtime polymorphism and method overloading is a compile time polymorphism.
@@ -85,8 +85,8 @@ Polymorphism
 	2.Improve communication between 2 entities.
 
 * Associations in java- 1. 1 to 1 2.1 to many 3. many to 1 4. many to many.
-- Student has a Address (Student is a Traget class and Address is a Dependant object- 1:1)
--Student has a Addresses(1:M)
+- Student has a Address (Student is a Target class and Address is a Dependant object- 1:1)
+-Student has  Addresses(1:M)
 -Branch has Employees(M:1)
 -Students has Courses(M:M)
 
@@ -95,7 +95,7 @@ Polymorphism
 -Composition - In case of composition, if the contained object does not existed then container object also wont exist. Ex Relationship b/w Library and Books
 
 Abstraction
-============
+==========================
 *abstract keyword can be used with classes and methods
 *If a class is made abstarct the object of that class can not be created(but referance can be created) , One must inherit the class to access it.
 *If a method is made abstract, then the method does not have any body.  also abstract methods can only be specified in abstract classes.
@@ -104,16 +104,16 @@ Abstraction
 
 
 Interface
-===========
+=========================
 *100 % of abstraction can be achieved.- contains only pure abstract methods
-*Interface contains only method signature not implementations. Tha class which inherits the interface must give the implementation or should declare itself as abstract class.
-*By defualt all methods in Interface are "public & abstract". and we can not change the access modifier from public.
+*Interface contains only method signature not implementations. The class which inherits the interface must give the implementation or should declare itself as abstract class.
+*By default all methods in Interface are "public & abstract". and we can not change the access modifier from public.
 *A class can implement any number of interface but can extend only one class.
 *When an interface wants to inherit other interface it uses extends keyword.
 *Interface can have variable, However that variable must be "public static final"
-*From java8 Interface can have method with boday!!!! and we should use "default" keyword to specify body to a method. We can also use this method in inheritence
+*From java8 Interface can have method with body!!!! and we should use "default" keyword to specify body to a method. We can also use this method in inheritance
 *From java8 Interface can also have static methods.!!! static methods do not takes place in inheritance
-*From java9 Interface can have private methods. Can not be part of inheritence
+*From java9 Interface can have private methods. Can not be part of inheritance
 
 *Functional Interface
 -Interface which has only one method is called Functional Interface
@@ -123,7 +123,7 @@ Interface
 
 
 Objects&Classes
-=================
+==============================
 Objects
 --------
 *Object class is the parent class of all classes in Java
@@ -138,13 +138,13 @@ final
 ------
 *Final can be applied to field level, method level, class level
 * If final is applied to filed level, variable value can not be changed, if we try so it would result in compile time error
-	For Primitive datatypes values can not be changed and for non primitive referances can not be changed.
+	For Primitive datatypes values can not be changed and for non primitive ,referances can not be changed.
 * If final is applied to method level, we cannot override that method
 * If final is applied to Class level, we can not Inherit that class.
 
 static
 -------
-*static can be applied to variable, method,block
+*static can be applied to variable, method, block
 *static variables can be accessed anywhere 
 *non static variables can not be access inside static method and static block
 *when we apply static to variable/method/block that becomes common /shared by all instances of the class.
@@ -157,11 +157,11 @@ static
 
 
 Exception Handling
-====================
+=================================
 -Abnormal termination of application in run time is called exception. Its different from Runtime error which occurs due to logical error.
 -There are 2 types of Exception- Checked Exception, Unchecked Exception.
 -Which ever the method creates exception, it will create the object of Exception and give it to JVM and JVM gives to Default Exception handler if we not handled the exception.
--We use try and catch block to handle exception. We write the main code inside try and handle in catch block, whenever exception occur lines after the exception in try block will not be executed , insted catch block gets executed.
+-We use try and catch block to handle exception. We write the main code inside try and handle in catch block, whenever exception occur lines after the exception in try block will not be executed , insted catch block gets executed.lines below catch also will be executed.
 -We can have multiple catch blocks for single try block
 -If a method is giving an exception JVM will check for the method, all method who are calling it and if no method handled it, JVM will give the exception object to Default exception handler.
 -When Exception generated we can do 3 things- 1. Handle the exception(try-catch) 2.Duck the Exception(throws)  3. Re throw an exception(try,catch,throw,throws,finally)
@@ -175,13 +175,15 @@ Exception Handling
 -we can write throws keyword in method/constructor signature but not in class signature.
 -Overridden methods can throw only unchecked exception if parent class method does not throws any exception or if parent method has unchecked exception.
 
--We can create our own exception called custom exception.Extending  Exception class, we can create our own exception.
+-We can create our own exception called custom exception. Extending  Exception class, we can create our own exception.
 -We can close the resources in finally block or Resources which we are using are Implementing AutoClosable interface then those resources will close automatically.
 -resources used in try with resources are made final . can not alter.
 -only try block can be written iff, if try with resource is written.
 
+
+
 Multithreading
-===================
+==================================
 - Single threaded programs will waste the CPU time cycle so we go to the concept of multithreading.
 -We can create Threads using 2 ways
 	* Extending Thread class
@@ -232,9 +234,9 @@ eg-
 -There is concept of Daemon thread, which means which is not important thread, By default in Java, all threads created are Non-Daemon threads, However we can change it, but we can not make main thread as Daemon thread. 
 
 
-==============
+======================================
 Var Args- Variable length arguments
-==============
+=======================================
 *If we want to pass multiple data of same types in a method we can use VarArgs using ...
 ex- public int add(int ... nums){
 		--logic for array nums to add numbers--
@@ -245,7 +247,7 @@ Internally these numbers will be converted into array.
 
 
 Nested Class
-============================
+======================================
 -Class inside a class is called Nested  class.
 -Nested class is divided into 2 types
 -1.Static nested class 2. Inner class
@@ -253,7 +255,7 @@ Nested Class
 
 
 Anonymous Inner Class
-==================
+================================
 -It is a class without a name
 -Can be applied to any interface or any abstract class/concrete class also
 -We give the implementation for a class method/s while createing the object of that class/interface
@@ -261,10 +263,10 @@ Anonymous Inner Class
 
 
 Lambda Expression
-====================
+================================
 -Used to give implementation to functional interface
 ex- Runnable r = ()-> System.out.println("Running");
-the above examble will override the run method of Runnable interface which is functional interface
+the above example will override the run method of Runnable interface which is functional interface
 
 -If the method in function interface accepts any parameter we can write lambda like below-
 ex- assume run class accepting some parameter integer i then,
@@ -273,7 +275,7 @@ ex- assume run class accepting some parameter integer i then,
 
 
 Access Modifiers
-===================
+================================
 *Public-participate in Inheritance, Can be accessed from anywhere
 *Protected-participate in Inheritance,Can not be accessed outside the package without relationship otherwise can be accessd anywhere.
 *Default-participate in Inheritance, Can not be accessed outside package.
@@ -292,16 +294,27 @@ Annotations
 
 Producer & Consumer Problem
 Stream API
-File Handling
-===================
-File- when we create a object of File it jus refer to a file
-*to create that file/directory we should call createFile method
-*Constructors- File(String s), File(String,File), File(String,String)
-*we can use list() method to list all files in a directory
-*isExists(),isFile(),isDirectory() are methods to verify.
 
+
+File Handling
+=========================
+File- 
+*when we create a object of File , physical file will not be created. it just refers to a file
+*To create that file, we should call createFile() method. ---> File f = new File("abc.txt"); f.createFile();
+*To Create directory we use mkdir() method
+*Constructors- File(String s), File(String,String), File(File,String)
+*Eg- File f1 = new File("IplTeams"); f1.mkdir(); File f2 = new File(f,rcb.txt); f2.createFile();
+*we can use list() method to list all files in a directory
+*exists(),isFile(),isDirectory() are methods to verify.
+
+
+
+FileWriter
 FileReader
-*
+BufferedWriter
+BufferedReader
+
+
 
 FileWriter- when we create a object directly creates file to write. If the file exists it will reuse the same file and override the content.
 *If override is the content is not equal use Constructor FileWriter("info.txt",false)
@@ -313,10 +326,136 @@ FileWriter- when we create a object directly creates file to write. If the file 
 
 
 
-Advanced Java
---------------------
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------
 JDBC
+-----------------------------------------
+* 6 Steps to Connect Database to Java Application
+1.Load and Register the driver- From jdbc4 this step is not required.
+	Driver driver = new Driver();
+	DriverManager.registerDriver(driver);
+
+url = "jdbc:mysql://localhost:3306/dbname"
+2.Establish a connection between Java Application and Database
+	Connection connection = DriverManager.getConnection(url,user,pw);
+
+3.Create the statement object/ PreparedStatement Object
+	Statement statement = connection.createStatement();
+			or
+	PreparedStatement pstmt = connection.prepareStatement(sqlQuery);
+	
+
+4.Process and execute the query
+	statement.executeQuery/statement.executeUpdate(sqlQuery);
+				or
+	pstmt.executeQuery();
+5.Process the Result from ResultSet.
+6.Close the connection
+	connection.close();
+
+
+select query - executeQuery();
+non select - executeUpdate();
+execute() - for both
+
+SQL Injection
+==========================
+
+-- -> this is the symbol to comment out sql single line.
+so we use prepared statement to pass the input at runtime.
+
+
+java.util.Date - Wed Jul 31 21:32:20 IST 2024
+java.sql.Date - 2024-07-31
+
+User(String) -java.text.SimpleDateFormat - java.util.Date - java.sql.Date - pstmt.setDate() - DB
+
+
+BLOB- Binary Large Object
+CLOB- Character Large Object
+Connection Pooling
+======================
+-Creationg and destruction of connection object is difficult.
+-so javax.sql.DataSource interface gives connection pool interface. DB vendors give implemention to this. When user wants to talk to DB he will use this connection pool objects.
+-When we use connection.close in normal way connection will be closed. But in connection pooling if close the connection, that connection go back and sit in connection pooling.
+
+
+
+Transaction
+java.sql.RowSet
+
+
+
+
+
+
+
+
 Servlets
+===================
+-There is no main method while writing servlets because, its a web application single threaded programs are not good. So in server , server maintains something called as Thread pool, when user requests it will provide one thread.
+
+Servlet(I)- init(),service,deinstantiation(),getServletInfo(),getServletConfig()
+
+GenericServlet(AC)- only service method is abstract
+HttpServlet(AC)- extends GenricServlet
+-HttpServletRequest(I)
+-HttpServletResponse(I)
+-HttpSession(I)
+-HttpServlet(C)
+-Cookie(C)
+
+HTTP Protocol Request-
+-----------------------------
+*Request Line- HTTP Method(GET/POST...) -Requested Resource(/test) - protocol version(HTTP/1.1)
+*Request Headers- Browser details and its language format and so on...
+*Request Body- Contains user information.(User supplied info)
+
+HTTP Protocol Response -
+----------------------------
+*Status Line- Protocol Version(HTTP/1.1/) -- status code(200)-Description of code(OK)
+	1XX - Informational
+	2XX - Successful
+	3XX - Redirection
+	4XX - Client Error
+	5XX - Server Error
+*Response Headers- MIME(Multipurpose Internet Mail Exchange)- Content type, content length, modified date etc..
+*Response Body- Actual Information which will be displayed to the user.
+
+Types of HttpRequest Methods
+--------------------------------
+GET - Get Information from server/ Can be bookmarked / request data is visible in address bar so not secured / Query String is sent is Request Line/ Request Body is empty./ It is Idempotent
+POST- Send information to server/ Can not be bookmarked / request data is not visible so its secured. / Query String is sent in Request Body/ Its is non Idempotent
+
+PUT- Update Information in server
+DELETE
+HEAD
+OPTIONS
+TRACE
+
+-HttpServlet Class does not contain any abstract method but still it is made as abstract because, one should not create the object directly from HttpServlet class, only object should be created from the class which extends HttpServlet.
+
+
+
+
+
+
+
+
+
+
+
+
+
 Hibernate
 Spring Core
 Spring Boot
@@ -326,6 +465,7 @@ Spring Boot
 -Spring MVC
 -Spring Rest
 Microservices
+
 
 
 
