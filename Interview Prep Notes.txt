@@ -316,6 +316,9 @@ Annotations
 Producer & Consumer Problem
 
 Stream API
+=========================
+filter, map, reduce
+
 
 
 File Handling
