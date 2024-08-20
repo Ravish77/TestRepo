@@ -285,6 +285,25 @@ Access Modifiers
 
 Wrapper Classes
 Collections
+====================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Enum
 ======================
@@ -312,13 +331,8 @@ Annotations
 @interface CricketPlayer{
 }
 
-
 Producer & Consumer Problem
-
 Stream API
-=========================
-filter, map, reduce
-
 
 
 File Handling
@@ -482,10 +496,92 @@ TRACE
 
 
 Hibernate
+
+
+
 Spring Core
+----------------------
+Cohesion - One class must be given only one responsibility. Cohesion must be high.
+Coupling - Always try to achieve loose coupling.
+
+
+Inversion Of Controller (IOC) - Usually we create the object and give it to JVM during the runtime. But here the flow is inverted, i.e IoC container gives the objects when we need in our application. Containers manages the lifecycle of all beans/objects. But we need to configure the container. configuration contains all the dependencies and all.
+
+Depenedncy Injection -
+*It is a process of defining the dependencies of a bean to another.
+*2 Main types of dependency Injection - Constructor Based DI, Setter Based DI
+*Its good to use Constructor Injection for mandatory dependencies and for non mandatory dependencies setter injections are preffered.
+*Circular dependcies are not recommended.
+
+Spring Container Configuration can be done in 4 ways-
+-XML configuration
+-Annotation Based Configuration
+-Pure Java Configuration
+-Spring boot Auto configuration
+
+-Autowire - 
+*Assiging the Dependent class to the Target class using autowire attribute. autowaire automatically search the beans based on values
+*Autowire will take 3 values - byName , byType , constructor
+*byName - Performs setter injection, and search for the name of the bean which is same as Dependent class name object in the Target class
+
+	<bean id="dev" class="com.ravishworks.beans.Development" autowire="byName">
+		<property name="lang" value="Java"></property>
+	</bean>   
+	
+	<bean id="com" class="com.ravishworks.beans.Laptop"/>
+	<bean id="desk" class="com.ravishworks.beans.Desktop"/>
+	<bean id="mob" class="com.ravishworks.beans.Mobile"/>
+
+ *byType - Performs Setter Injection, and search for the type of the bean which is same as Dependent class object's type in the Target class
+	<bean id="dev" class="com.ravishworks.beans.Development" autowire="byType">
+		<property name="lang" value="Java"></property>
+	</bean>   
+	
+	<bean id="com" class="com.ravishworks.beans.Laptop"/>
+	<bean id="desk" class="com.ravishworks.beans.Desktop" primary="true"/>
+	<bean id="mob" class="com.ravishworks.beans.Mobile"/>
+
+*constrcutor- performs Constructor Injection, then applies byType to the arguemnt passed to the constrcutor of Target Class
+
+
+*Important Annotations
+-@Component- Sterotype annotations , can be applied at the class level to inform container that this class's object is needed.
+-@Service- Applied to service layer class @Component + Transcational logic/ Business logic
+-@Repository - Applied to DAO layer class. @Component + SQL support
+-@Controller - Applied to controller class. @Component + Controller
+-@RestController
+-@Scope- To define the scope of the class we use this annotation. @Scope("prototype")
+-@Autowired- Can be applied toconstructor, setter or filed for which field needs to injected.
+-@Bean-
+-@Configuration- Applied at class level, to make a class as configuration class.
+-@Qualifier- Can be used along with Autowired to specify which class's bean needs to be injected
+-@Lazy- To apply lazy loading.
+-@Primary- To make a one bean primary if there are multiple beans of same type. But Qualifier will be given preferance if both are present.
+-@PropertySource-  should be applied at class level to tell the location of property file- @PropertySource(value = ("application.properties"))
+-@Value - to fetch value from property file - @Value("${mobileName}")- apply to field.
+-@ConfigurationProperties(prefix = "")
+
+
+
+
+
+*To do annotations based configuration, we have to use xml  and need to pass <context:component-scan base-package="com.ravishworks.beans"/>
+
+
+
 Spring Boot
--Spring JDBC
--Spring Data JPA
+-SpringBoot JDBC
+*All JDBC related boiler plate codes will be removed in this module of spring.
+*We use JdbcTemplate object to inject to DAO to  Work with SpringBootJDBC
+
+
+
+-SpringBoot Data JPA
+-------------------------------
+*CrudRepository
+*PagingAndSortingRepository
+*JpaRespository
+
 -Spring Security
 -Spring MVC
 -Spring Rest
@@ -497,6 +593,61 @@ Microservices
 
 Agile 
 ---------------------
+*Agile is iterative(repeating the same process) and incremental(adding new features) model.
+*Agile Principles 
+-Customer no need to wait for long time
+-We develop and test and release, a piece of software to the customer with few number of features.
+-We can accept / accomodate requirement changes.
+Termoniologies in Agile
+*User Story : A feature or a model in a software
+*Epic : Collection of user story
+*Product backlog : Contains list of user stories prepared by product owner at the starting.
+*Sprint : Period of time required to complete user stories, decided by the product owner and team. usually 2- 4 weeks of time.
+*Sprint planning meeting : meeting conducts with the team to define what can be delivered in the spirnt and duration.
+*Sprint backlog : List of comitted stories by Dev/QA team for specific sprint.
+*Scrum Meeting : Meeting conducted by scrum master everyday for 15 min. standup meeting.
+*Spring Retrospective Meeting : Conducts meeting after completion of sprint.
+*story point : Rough estimation of user stories, given by Dev/QA team in fibonocci series.
+
+
+
+Scrum
+----------------------
+*It is a framework which we build  software product by following Agile principles.
+*Product owner, Scrum master, Dev team, QA Team
+
+*Roles - Product Owner, Scrum master, Team
+*Artifacts - Product backlog, burndown chart
+*Ceremonies - Sprint Planning, Sprint review, Daily scrum,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
