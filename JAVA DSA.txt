@@ -1,0 +1,70 @@
+Big O
+===================
+*Big O is a way to write the code in a better way.
+*We measure it by Time Complexity and Space complexity
+
+*Time Complexity - Number of operations
+*Space Complexity - Using the memory efficiently
+*Omega is Best Case, Theta is avg case, Big O is worst case.
+*X axis is n , Y axis is number of operations
+
+-O(n) - Number of operation is equal to n -for loop
+	 We will drop the constants if any ex- O(2n) = O(n)
+
+-O(n2) - Number of operations is square of the number- Inner for loop
+	We will drop non dominant Ex - O(n2+n) = O(n2), as n grows n2 will grow very huge.
+
+O(1) - Number of operation is only 1 what ever the number is. ex- (n+n) - Most Efficient Big O
+
+O(log n) - number of operation is log(n) if the there are n items - 
+	Ex - If there are 8 items if we need to find one item we can find it in 3 operations. log(8) = 3
+
+*If we have 2 different inputs a,b Big O might change, ex if both are different for loops the Big O becomes O(a+b)
+
+Efficiency of Big O
+-O(1) - Constant
+-O(log n) - Divide and Conquer
+-O(n) - Proportional
+-O(n log n) - Loop inside loop
+-O(n2)
+
+
+
+Array List
+===================
+*To add item at the end- O(1)
+*To remove item at the end- O(1)
+*To add/remove item at the beginning - O(n)
+* To Search item by value - O(n)
+* To search item by index - O(1)
+
+
+
+
+
+
+
+
+
+
+Linked List
+Doubly Linked List
+Stack
+Queue
+Trees
+Hash Table
+Graphs
+
+
+
+
+
+
+Sorting
+========================
+Bubble Sort
+Insertion Sort
+
+Merge Sort
+Quick Sort
+
