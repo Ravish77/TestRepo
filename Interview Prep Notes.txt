@@ -47,6 +47,7 @@ Array
 
 
 
+
 Encapsulation
 =============================
 *Enacpsulation is a method of hiding the sensitive data from user by making fields as private.
@@ -90,9 +91,9 @@ Polymorphism
 -Branch has Employees(M:1)
 -Students has Courses(M:M)
 
-*Composition and Aggregation
--Aggregation - In case of agg, if the contained object would be existed even without container object. Ex. Relationship b/w Library and Student.
--Composition - In case of composition, if the contained object does not existed then container object also wont exist. Ex Relationship b/w Library and Books
+*Composition and Aggregation - Association between 2 entities can be of these 2 types.
+-Aggregation - In case of agg, if the container object would be existed even without contained object. Ex. Relationship b/w Library and Student. Student and Mobile
+-Composition - In case of composition, if the contained object does not existed then container object also wont exist. Ex Relationship b/w Library and Books, Student and Heart
 
 Abstraction
 ==========================
@@ -117,6 +118,27 @@ Interface
 
 *Functional Interface
 -Interface which has only one method is called Functional Interface
+
+Lambda Expression
+================================
+-Used to give implementation to functional interface
+ex- Runnable r = ()-> System.out.println("Running");
+the above example will override the run method of Runnable interface which is functional interface
+
+-If the method in function interface accepts any parameter we can write lambda like below-
+ex- assume run class accepting some parameter integer i then,
+	Runnable r = i->syso("value is"+i);
+
+
+
+Access Modifiers
+================================
+*Public-participate in Inheritance, Can be accessed from anywhere
+*Protected-participate in Inheritance,Can not be accessed outside the package without relationship otherwise can be accessd anywhere.
+*Default-participate in Inheritance, Can not be accessed outside package.
+*Private- Do not participate in Inheritance, can not be accessed outside the class
+
+
 *Marker Interface/Tagged Interface
 -Interface which does not have any method or which is empty
 
@@ -154,22 +176,34 @@ static
 	static method
 *When an entity is static no need to create the object of the class to call it. We can directly call it using class name
 
+*break - When a match is found control will come out of it.
+*continue - we skip that iteration and continue with others.
+
 
 
 Exception Handling
 =================================
 -Abnormal termination of application in run time is called exception. Its different from Runtime error which occurs due to logical error.
 -There are 2 types of Exception- Checked Exception, Unchecked Exception.
+
 -Which ever the method creates exception, it will create the object of Exception and give it to JVM and JVM gives to Default Exception handler if we not handled the exception.
+
 -We use try and catch block to handle exception. We write the main code inside try and handle in catch block, whenever exception occur lines after the exception in try block will not be executed , insted catch block gets executed.lines below catch also will be executed.
+
 -We can have multiple catch blocks for single try block
 -If a method is giving an exception JVM will check for the method, all method who are calling it and if no method handled it, JVM will give the exception object to Default exception handler.
+
 -When Exception generated we can do 3 things- 1. Handle the exception(try-catch) 2.Duck the Exception(throws)  3. Re throw an exception(try,catch,throw,throws,finally)
+
 -Exception may be compile time exception or runtime exception. In CTE compiler will force u to handle the exception. This is also called Checked Exception. Runtime exceptions are called Unchecked exceptions.
+
 -After handling the exception again throwing the exception to the callers is called re-throwing an exception.We use "throw" keyword to rethrow the exception. and to duck the exception we use throws keyword. throws keyword is used in method signature. whereas throw keyword is used in catch block to rethrow the exception object.After rethrowing the exception we should use throws keyword in method signature.
+
 -When we use throw keyword to rethrow the exception, statements after the throw keyword will not be executed. In this case we use finally block to execute the critical stement irrespective of exceptions handled or throwed does not matter, finally block will be executed.
+
 - finally block will always dominate return statement. If we want to execute anything after return statement we can use finally block.
 -only try we cannot write, either catch or finally must be there.
+
 -only finally/catch block can not be used alone, we must use try block
 -System.exit(0) will dominate the finally block, finally block will not be executed if the method is present.
 -we can write throws keyword in method/constructor signature but not in class signature.
@@ -177,17 +211,49 @@ Exception Handling
 
 -We can create our own exception called custom exception. Extending  Exception class, we can create our own exception.
 -We can close the resources in finally block or Resources which we are using are Implementing AutoClosable interface then those resources will close automatically.
--resources used in try with resources are made final . can not alter.
+-resources used in try with resources are made final . can not alter.finally block becommes dummy if we use try with resources.
 -only try block can be written iff, if try with resource is written.
+
+
+
+
+Wrapper Classes
+=========================
+-To wrap the primitive datatypes we have wrapper classes
+- Almost Every Wrapper classes contains 2 constructors(byte,short,int,long,double,float)
+	*primitive type as argument
+	*String type as argument- If string input is not properly formatted to number, it will throw an exception NumberFormatException
+-For Character class, it has only one constructor, which can take only primitive arguement type.
+-For Boolean class, primitive parameter should be passed as either true or false in constructor, otherwise Compile time error
+	For Constructor which takes string as arguement, "True"(or Case insensitive trUe), "true" only results in true otherwise it will return false.
+-toString and equals method of Object class is ovverridden in Wrapper classes.
+- 4 important methods of wrapper classes are -  toString()- To convert Wrapper/primitive to string.
+						valueOf()-Primitive/string to Wrapper object.
+						XXXValue()- Wrapper object to primitive.
+						parseXXX()- Every Wrapper class except Character contains parseXXX to convert String corresponding primitive type
+					
+
+
+======================================
+Var Args- Variable length arguments
+=======================================
+*If we want to pass multiple data of same types in a method we can use VarArgs using ...
+ex- public int add(int ... nums){
+		--logic for array nums to add numbers--
+	}
+when calling the above method we can directly pass multiple interger type data like, add(3,4,5,6,7,8);
+Internally these numbers will be converted into array. 	
+
+
 
 
 
 Multithreading
 ==================================
 - Single threaded programs will waste the CPU time cycle so we go to the concept of multithreading.
--We can create Threads using 2 ways
+- We can create Threads using 2 ways
 	* Extending Thread class
-	*Implementing Runnable interface- functional interface having run() method
+	* Implementing Runnable interface- functional interface having run() method
 -Thread class implements Runnable Interface
 
  *****Extending Thread class*****
@@ -214,16 +280,21 @@ eg-
 	}
 
 -Among these 2 methods,implementing Runnable is better because, If a class extends Thread class then it can not extend any other class.
+
 -If we call run method instead of start method, program will behave like a single threaded program. because run method can not give control to TS.
 -we can give name to thread by using setName() method. t1.setName("thread1");
+
 -isAlive() method- it is used to check if the thread is alive or not, this method will return boolean value
 -join() method - it is used to make a thread wait for another thread. for ex. if main thread is running and if we say t1.join() where t1 is a object of Thread, then main method will wait until the t1 thread completes.
+
 -we can set priority to a thread using setPriority() method. Higher the number higher the priority.
 -Race condition - Its a phenomenon in multithreading in Java where multiple threads will race towards CPU time life cycle to complete its work without caring other threads. To overcome we have the concept of Syncronization.
 -To achieve syncronization we use synchronized key word at block/method level. Whenever we apply synchronized to a method or block only one Thread can use it at a time. thus Race condition problem is resolved.
 -synchronized methods are slower but thread safe.
--If we use non synchronized method to use by many Threads that leads to data inconsistency. So we arrive at synchronized method.
+
+-If we use non synchronized metho	d to use by many Threads that leads to data inconsistency. So we arrive at synchronized method.
 -synchronized with static method is class level lock and synchronized with non-static methd is a object level lock
+
 - States of Thread -> New - Runnable - Running - Dead
 	* while in Running state it can go to sleep state(when sleep method is called), block state(when required resources are not avialable) and wait state(when wait method is called)
 	*thread will come to Runnable again comes out of sleep(when sleep time is over), block state(when required resource is avialble) and wait(when notify(),notigyAll() methods are called.
@@ -233,16 +304,6 @@ eg-
 -We can create ThreadGroup to perform a same action on many threads.
 -There is concept of Daemon thread, which means which is not important thread, By default in Java, all threads created are Non-Daemon threads, However we can change it, but we can not make main thread as Daemon thread. 
 
-
-======================================
-Var Args- Variable length arguments
-=======================================
-*If we want to pass multiple data of same types in a method we can use VarArgs using ...
-ex- public int add(int ... nums){
-		--logic for array nums to add numbers--
-	}
-when calling the above method we can directly pass multiple interger type data like, add(3,4,5,6,7,8);
-Internally these numbers will be converted into array. 	
 
 
 
@@ -262,31 +323,14 @@ Anonymous Inner Class
 
 
 
-Lambda Expression
-================================
--Used to give implementation to functional interface
-ex- Runnable r = ()-> System.out.println("Running");
-the above example will override the run method of Runnable interface which is functional interface
-
--If the method in function interface accepts any parameter we can write lambda like below-
-ex- assume run class accepting some parameter integer i then,
-	Runnable r = i->syso("value is"+i);
-
-
-
-Access Modifiers
-================================
-*Public-participate in Inheritance, Can be accessed from anywhere
-*Protected-participate in Inheritance,Can not be accessed outside the package without relationship otherwise can be accessd anywhere.
-*Default-participate in Inheritance, Can not be accessed outside package.
-*Private- Do not participate in Inheritance, can not be accessed outside the class
-
-
-
-Wrapper Classes
 Collections
 ====================
+*Array are fixed in size and only homogeneous type of data can be added. In collection hetrogenous type of data can be added and it will grow dynamically as we add the object.
 
+List- ArrayList, LinkedList
+Queue - ArrayDeque, PriorityQueue
+Set - TreeSet, HashSet, LinkedHashSet
+Map
 
 
 
@@ -363,7 +407,16 @@ FileWriter- when we create a object directly creates file to write. If the file 
 
 
 
-
+Serialization and Deseralization
+=========================================
+Serialization - Its a process of representing the state of an object over a network or file. Or converting state to non java supported formats which can be understood by network or file. Deserialization is exact reverse of it.
+-We use FileOutputStream or ObjectOutputStream to achieve serialization.
+-Deserialization can be achived by FileInputStream and ObjectInputStream.
+-We have to make the data which we are sending as Serializable by implementing marker interface Serializable.
+-If we serialize tranisent property it will provide the default value for that property. Real value will not be serialzed.
+-If we make a property as static transient, transient has no value
+-If we make a property as final transient, transient has not value
+-So to make a property as secured only transient keyword has to be used alone.
 
 
 
@@ -584,7 +637,57 @@ Spring Boot
 
 -Spring Security
 -Spring MVC
+
+
+-Spring AOP
+==========================
+Aspect- Additional service class
+Advice- Additional service methods.
+Pointcut-  Which methods in Business logic needs advices .
+Joinpoint - It will say which advices needs to be be joined to pointcut methods.
+
+Target - Which all business classes needs advices
+Weaving-
+Proxy -
+
+
+
+@Aspect
+@Before
+@After
+@Around
+@AfterReturning
+@AfterThrowing
+@PointCut 
+
+
+
 -Spring Rest
+====================================
+@RestController - @Controller + @ResponseBody
+@PathVariable
+@RequestParam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Microservices
 
 
@@ -619,50 +722,3 @@ Scrum
 *Roles - Product Owner, Scrum master, Team
 *Artifacts - Product backlog, burndown chart
 *Ceremonies - Sprint Planning, Sprint review, Daily scrum,
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Data Structures and Algorithms in Java
-===========================================
-Linear
--Static
-	-Array
--Dynamic
-	-Linkedlist
-	-Queue
-	-Stack
-Non-Linear
-	-Tree
-	-Graph
